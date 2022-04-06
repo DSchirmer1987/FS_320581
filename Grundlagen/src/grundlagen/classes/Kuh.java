@@ -32,7 +32,11 @@ public class Kuh {
 		return alter;
 	}
 	public void setAlter(int alter) {
-		this.alter = alter;
+		if(alter > 30) {
+			this.alter = 30;
+		} else {
+			this.alter = alter;
+		}
 	}
 	
 	// Konstruktor(en)
@@ -46,7 +50,8 @@ public class Kuh {
 	public Kuh(String name, String farbe, int alter) {
 		this.setName(name);
 		this.setFarbe(farbe);
-		this.setAlter(alter);
+//		this.setAlter(alter);
+		this.alter = alter;
 	}
 	//toString-Methode
 	@Override
