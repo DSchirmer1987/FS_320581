@@ -36,7 +36,13 @@ public class TextCleaner {
 	}
 	
 	public String beendeMitPunkt(String text) {
-		text = text + ".";
+//		if(!text.substring(text.length() - 1).equals(".")) {
+//			text = text + ".";
+//		}
+		if(!text.endsWith(".")) {
+			text = text + ".";
+		}
+		
 		return text;
 	}
 	
