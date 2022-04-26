@@ -1,9 +1,13 @@
 package quizmaster_dozent;
 
+import java.util.ArrayList;
+
 import quizmaster_dozent.model.spiel.Antwort;
 import quizmaster_dozent.model.spiel.Frage;
 import quizmaster_dozent.model.spiel.Gewinntabelle;
+import quizmaster_dozent.model.spiel.Spielrunde;
 import quizmaster_dozent.model.spiel.Stufe;
+import quizmaster_dozent.model.spiel.joker.Joker;
 import quizmaster_dozent.model.spiel.joker.Telefonjoker;
 
 public class App {
@@ -30,5 +34,13 @@ public class App {
 		System.out.println(frage);
 		tj.anwenden(frage);
 		System.out.println(frage);
+		
+		ArrayList<Frage> fragen = new ArrayList<Frage>();
+		fragen.add(frage);
+		ArrayList<Joker> jokers = new ArrayList<Joker>();
+		jokers.add(tj);
+		
+		
+		Spielrunde spielrunde = new Spielrunde(null, fragen, new Gewinntabelle(5), 0, jokers);
 	}
 }
