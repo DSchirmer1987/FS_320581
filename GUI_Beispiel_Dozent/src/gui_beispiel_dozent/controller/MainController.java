@@ -3,11 +3,14 @@ package gui_beispiel_dozent.controller;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import gui_beispiel_dozent.model.Kunde;
 import gui_beispiel_dozent.model.Kundenspeicher;
 import gui_beispiel_dozent.view.MainFrame;
+import gui_beispiel_dozent.view.menu.MainPopupMenu;
 
 public class MainController {
 	
@@ -80,6 +83,25 @@ public class MainController {
 					}
 				}
 			}
+		});
+		
+		mainframe.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				if(e.isPopupTrigger()) {
+					MainPopupMenu pm = new MainPopupMenu();
+					pm.show(e.getComponent(), e.getX(), e.getY());
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				if(e.isPopupTrigger()) {
+					MainPopupMenu pm = new MainPopupMenu();
+					pm.show(e.getComponent(), e.getX(), e.getY());
+				}
+			}
+			
 		});
 	}
 }
