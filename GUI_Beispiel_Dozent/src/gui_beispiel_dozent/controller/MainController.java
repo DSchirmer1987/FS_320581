@@ -1,11 +1,18 @@
 package gui_beispiel_dozent.controller;
 
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.text.JTextComponent;
 
 import gui_beispiel_dozent.model.Kunde;
 import gui_beispiel_dozent.model.Kundenspeicher;
@@ -38,6 +45,8 @@ public class MainController {
 		for(int i = 0; i<10;i++) {
 			this.speicher.getKunden().add(new Kunde("Max", "Mustermann" + i, "Musterweg", "ABC" + i));
 		}
+		
+		this.getElements(mainframe);
 		
 		mainframe.getContent().getBtn_prev().setEnabled(false);
 		
@@ -103,5 +112,33 @@ public class MainController {
 			}
 			
 		});
+	}
+	
+	private void getElements(Component root) {
+		Container container = (Container) root;
+		for(Component inner : container.getComponents()) {
+			// Rekursive Aufruf an alle innenliegenden Componenten
+			getElements(inner);
+			
+			// Für alle Buttons
+			if(inner instanceof JButton) {
+				
+			}
+			
+			// Für alle TextComponents (JLabel, JTextfield, JTextarea)
+			if(inner instanceof JTextComponent) {
+				
+			}
+			
+			// Für die Menubar
+			if(inner instanceof JMenu) {
+				for(Component menuComponent : ((JMenu) inner).getMenuComponents()) {
+					if(menuComponent instanceof JMenuItem) {
+						JMenuItem jmi = (JMenuItem) menuComponent;
+						jmi.addActionListener(MenuBarActionListener.getInstance());
+					}
+				}
+			}
+		}
 	}
 }
