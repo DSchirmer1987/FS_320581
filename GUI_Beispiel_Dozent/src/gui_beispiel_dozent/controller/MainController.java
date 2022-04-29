@@ -24,6 +24,7 @@ public class MainController {
 	private Kundenspeicher speicher;
 	private MainFrame mainframe;
 	private int counter = 0;
+	private int button_counter = 0;
 	
 	public MainController() {
 		EventQueue.invokeLater(new Runnable() {		
@@ -112,6 +113,18 @@ public class MainController {
 			}
 			
 		});
+		
+		JButton[] numbers = new JButton[9];
+		for(button_counter = 0; button_counter < 9; button_counter++) {
+			numbers[button_counter] = new JButton(String.valueOf(button_counter + 1));
+			mainframe.getContent().getPnl_east().add(numbers[button_counter]);
+			numbers[button_counter].addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					System.out.println(e.getActionCommand());
+				}
+			});
+		}
 	}
 	
 	private void getElements(Component root) {
@@ -122,7 +135,15 @@ public class MainController {
 			
 			// Für alle Buttons
 			if(inner instanceof JButton) {
-				
+//				if( ((JButton)inner).getActionCommand().equals("2") ) {
+//					((JButton) inner).addActionListener(new ActionListener() {
+//						
+//						@Override
+//						public void actionPerformed(ActionEvent e) {
+//							System.out.println(e.getActionCommand());	
+//						}
+//					});
+//				}
 			}
 			
 			// Für alle TextComponents (JLabel, JTextfield, JTextarea)

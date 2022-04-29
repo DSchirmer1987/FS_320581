@@ -58,6 +58,11 @@ public class MainPanel extends JPanel{
 		return btn_prev;
 	}
 
+	
+	public JPanel getPnl_east() {
+		return pnl_east;
+	}
+
 	public MainPanel() {
 		this.setLayout(new BorderLayout(5,5));
 		
@@ -80,6 +85,10 @@ public class MainPanel extends JPanel{
 		 */
 		this.add(pnl_east, BorderLayout.EAST);
 		pnl_east.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+		pnl_east.setLayout(new GridLayout(0,3));
+//		for(int i = 1; i < 10; i++) {
+//			pnl_east.add(new JButton(String.valueOf(i)));
+//		}
 		/*
 		 * West - Grün
 		 */
