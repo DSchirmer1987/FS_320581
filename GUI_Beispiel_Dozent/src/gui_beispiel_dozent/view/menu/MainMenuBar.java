@@ -16,6 +16,7 @@ public class MainMenuBar extends JMenuBar{
 	public MainMenuBar() {
 		this.mnuFile.add(this.mniNew);
 		this.mnuFile.add(this.mniOpen);
+		this.mnuFile.addSeparator();
 		this.mnuFile.add(this.mniExit);
 		
 		this.mnuHelp.add(this.mniAbout);
