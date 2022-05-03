@@ -3,6 +3,7 @@ package zeitangaben_dozent;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
@@ -81,6 +82,13 @@ public class App {
 		System.out.println("Wir warten von: " + start_datum + " bis " + start_datum.plusDays(3));
 		LocalDateTime heute = LocalDateTime.now();
 		System.out.println(heute.plusHours(25));
+		
+		
+		/*
+		 * 04.05.2022
+		 * 04.Mai.2022
+		 */
+		LocalDate monatsname = LocalDate.of(2022, Month.MAY, 4);
 	}
 
 }
