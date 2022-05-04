@@ -10,6 +10,10 @@ public class Database {
 	private String db_database;
 	private String db_host;
 	
+	public Connection getDb_conn() {
+		return db_conn;
+	}
+
 	public Database(String server, String host, String database, String user, String password) {
 		this.db_server = server;
 		this.db_database = database;
@@ -20,7 +24,7 @@ public class Database {
 		 * JDBC String aufbauen.
 		 * Schema: jdbc:servertyp://ip/database
 		 */
-		String jdbc = "jdbc:" + server + "://" + host + "/" + database;
+		String jdbc = "jdbc:" + server + ":" + host + "/" + database;
 		
 		/*
 		 * Aufbau der Datenbankverbindung über einen DriverManager
