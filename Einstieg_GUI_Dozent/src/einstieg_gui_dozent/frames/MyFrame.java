@@ -71,6 +71,7 @@ public class MyFrame extends JFrame{
 		// Ein Beschriftungsfeld (Label) hinzufügen
 		JLabel label = new JLabel("Ich bin ein Label!");
 		this.add(label);
+		label.setText(String.format("Hallo %n %s", "Label"));
 		
 		JButton mausButton = new JButton("Ich reagiere auf rechtsklicks");
 		this.add(mausButton);
